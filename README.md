@@ -1,4 +1,5 @@
 This repository contains python script to turn your raspberry pi into an oscilloscope. To achieve this, you will need :
+
 1. Raspberry Pi
 2. ADS1015 Breakout board Analog to Digital converter
 

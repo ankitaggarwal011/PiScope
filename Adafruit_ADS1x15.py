@@ -1,7 +1,11 @@
 #!/usr/bin/python
 
 import time
-import smbus
+try:
+  import smbus
+except Exception, err:
+  print err
+  pass
 from Adafruit_I2C import Adafruit_I2C
 
 # ===========================================================================

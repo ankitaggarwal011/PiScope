@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="PiScope : Turn your Raspberry Pi into an Oscilloscope/XY Plotter">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>PiScope</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ankitaggarwal011/PiScope">View on GitHub</a>
+
+          <h1 id="project_title">PiScope</h1>
+          <h2 id="project_tagline">Turn your Raspberry Pi into an Oscilloscope/XY Plotter</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ankitaggarwal011/PiScope/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ankitaggarwal011/PiScope/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="piscope-turn-your-raspberry-pi-into-an-oscilloscopexy-plotter" class="anchor" href="#piscope-turn-your-raspberry-pi-into-an-oscilloscopexy-plotter" aria-hidden="true"><span class="octicon octicon-link"></span></a>PiScope: Turn your Raspberry Pi into an Oscilloscope/XY Plotter</h1>
+
+<p>An <strong>oscilloscope</strong> is a laboratory instrument commonly used to display and analyze the waveform of electronic signals. In effect, the device draws a graph of the instantaneous signal voltage as a function of time.</p>
+
+<p>A <strong>XY Plotter</strong> is an instrument to plot a voltage variable with respect to another voltage variable. This is in contrast to the oscilloscope which plots a voltage variable with respect to time.</p>
+
+<p>This python library can turn your <strong>Raspberry Pi</strong> into an Oscilloscope or XY plotter. Simply, interface an <strong>Analog to Digital Converter</strong> with your Raspberry Pi and use the library to view the analog signals on your Raspberry Pi. Currently, the library supports Adafruit ADS1015 breakout board.</p>
+
+<p><img src="https://learn.adafruit.com/system/guides/images/000/000/195/medium800/summary.jpg" alt="">
+<em>Raspberry Pi with ADS1015</em></p>
+
+<h2>
+<a id="motivation" class="anchor" href="#motivation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Motivation</h2>
+
+<p>Oscilloscope are costly, bulky. I wanted to monitor analog sensors on Raspberry Pi and I didn't had an actual oscilloscope. Not exactly precise, but it could be very helpful for most applications.</p>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p><em>Hardware</em></p>
+
+<ol>
+<li><p>Raspberry Pi B/B+/2</p></li>
+<li><p><a href="http://www.adafruit.com/product/1083">ADS1015 Breakout board Analog to Digital converter</a></p></li>
+</ol>
+
+<p><em>Software</em></p>
+
+<ol>
+<li>Python 2.7</li>
+</ol>
+
+<p>The following python modules are needed in order to use this library:</p>
+
+<pre><code>pylab
+matplotlib
+Tkinter
+</code></pre>
+
+<h2>
+<a id="interfacing-ads1015-with-raspberry-pi" class="anchor" href="#interfacing-ads1015-with-raspberry-pi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interfacing ADS1015 with Raspberry Pi</h2>
+
+<ol>
+<li>Connect Adafruit ADS1015 to Raspberry Pi
+&gt; GND to GND, 5V to 5V, SDL to SDL, SCL to SCL, ADDR to GND (I2C address 0x48)</li>
+<li>Check the devices connected to the I2C bus using the command below
+&gt; The Adafruit ADS1015 should be shown at: </li>
+</ol>
+
+<div class="highlight highlight-sh"><pre>$ sudo i2cdetect -y 1</pre></div>
+
+<p>If you need help in interfacing, check out the official documentation from Adafruit:</p>
+
+<p><a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c">https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c</a></p>
+
+<p><a href="https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/">https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/</a></p>
+
+<p><a href="https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code">https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code</a> </p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To turn your Raspberry Pi into an <em>Oscilloscope</em> using this library, just clone the repository and use the following code:</p>
+
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> PiScope <span class="pl-k">import</span> Plotter
+
+piscope <span class="pl-k">=</span> Plotter()
+
+piscope.setup([<span class="pl-c1">0</span>]) <span class="pl-c"># Here, the channel used on ADS1015 is channel 0.</span>
+
+piscope.plot()</pre></div>
+
+<h4>
+<a id="or" class="anchor" href="#or" aria-hidden="true"><span class="octicon octicon-link"></span></a>OR</h4>
+
+<p>Use example_oscilloscope.py available with the repository.</p>
+
+<div class="highlight highlight-sh"><pre>$ python example_oscilloscope.py</pre></div>
+
+<p>To turn your Raspberry Pi into an <em>XY Plotter</em> using this library, just clone the repository and use the following code:</p>
+
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> PiScope <span class="pl-k">import</span> Plotter
+
+piscope <span class="pl-k">=</span> Plotter()
+
+piscope.setup([<span class="pl-c1">0</span>, <span class="pl-c1">1</span>]) <span class="pl-c"># Here, the channels used on ADS1015 are channel 0 (X) and channel 1 (Y).</span>
+
+piscope.plot()</pre></div>
+
+<h4>
+<a id="or-1" class="anchor" href="#or-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>OR</h4>
+
+<p>Use example_xyplotter.py available with the repository.</p>
+
+<div class="highlight highlight-sh"><pre>$ python example_xyplotter.py</pre></div>
+
+<h1>
+<a id="dry-test" class="anchor" href="#dry-test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dry Test</h1>
+
+<p>In case you don't own a Raspberry Pi or ADS1015 yet, but want to see the library in action, I have included a dry test example, which doesn't require any hardware. You can simply run it on any Linux/Windows platform.</p>
+
+<p>Use example_drytest.py available with the repository.</p>
+
+<div class="highlight highlight-sh"><pre>$ python example_drytest.py</pre></div>
+
+<h2>
+<a id="example-results" class="anchor" href="#example-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example results</h2>
+
+<p><img src="https://raw.githubusercontent.com/ankitaggarwal011/PiScope/master/example_oscilloscope.png" alt="">
+<em>Oscilloscope</em></p>
+
+<p><img src="https://raw.githubusercontent.com/ankitaggarwal011/PiScope/master/example_xyplotter.png" alt="">
+<em>XY Plotter</em></p>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> PiScope <span class="pl-k">import</span> Plotter</pre></div>
+
+<p>Import the module in your main file.</p>
+
+<div class="highlight highlight-python"><pre>piscope <span class="pl-k">=</span> Plotter()</pre></div>
+
+<p>Create oscilloscope/XY Plotter</p>
+
+<h4>
+<a id="piscopesetupchannels" class="anchor" href="#piscopesetupchannels" aria-hidden="true"><span class="octicon octicon-link"></span></a>piscope.setup(channels)</h4>
+
+<p>Setup the channels of ADS1015 being used for oscilloscope/XY Plotter.</p>
+
+<p>channels is the channels of ADS1015 which are to be used, Type: List/Array of 1 or 2 Integers.</p>
+
+<p>e.g. In case of an oscilloscope, channels is a list with one element representing the active ADS1015 channel (channels = [channel_number]).</p>
+
+<p>e.g. In case of an oscilloscope, channels is a list with two elements representing the active ADS1015 channels (channels = [channel_number_X, channel_number_Y]).</p>
+
+<h4>
+<a id="piscopeplot" class="anchor" href="#piscopeplot" aria-hidden="true"><span class="octicon octicon-link"></span></a>piscope.plot()</h4>
+
+<p>Plot the analog values on the oscilloscope/XY Plotter.</p>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
+
+<h4>
+<a id="author-ankit-aggarwal" class="anchor" href="#author-ankit-aggarwal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author: Ankit Aggarwal</h4>
+
+<p>If anybody is interested in working on developing this library, fork and feel free to get in touch with me.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="https://github.com/ankitaggarwal011/PiScope/blob/master/LICENSE">MIT License</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">PiScope maintained by <a href="https://github.com/ankitaggarwal011">ankitaggarwal011</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-59109394-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>

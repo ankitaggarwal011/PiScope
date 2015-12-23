@@ -1,6 +1,10 @@
 #!/usr/bin/python
 import re
-import smbus
+try:
+  import smbus
+except Exception, err:
+  print err
+  pass
 
 # ===========================================================================
 # Adafruit_I2C Class

@@ -183,12 +183,12 @@ class ADS1x15:
     if (self.ic == self.__IC_ADS1015):
       config |= self.spsADS1015.setdefault(sps, self.__ADS1015_REG_CONFIG_DR_1600SPS)
     else:
-      if ( (sps not in self.spsADS1115) & self.debug):	  
-	print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
+      if ( (sps not in self.spsADS1115) & self.debug):    
+    print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
       config |= self.spsADS1115.setdefault(sps, self.__ADS1115_REG_CONFIG_DR_250SPS)
 
     # Set PGA/voltage range, defaults to +-6.144V
-    if ( (pga not in self.pgaADS1x15) & self.debug):	  
+    if ( (pga not in self.pgaADS1x15) & self.debug):      
       print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
     config |= self.pgaADS1x15.setdefault(pga, self.__ADS1015_REG_CONFIG_PGA_6_144V)
     self.pga = pga
@@ -219,17 +219,17 @@ class ADS1x15:
     # Read the conversion results
     result = self.i2c.readList(self.__ADS1015_REG_POINTER_CONVERT, 2)
     if (self.ic == self.__IC_ADS1015):
-    	# Shift right 4 bits for the 12-bit ADS1015 and convert to mV
-    	return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*pga/2048.0
+        # Shift right 4 bits for the 12-bit ADS1015 and convert to mV
+        return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*pga/2048.0
     else:
-	# Return a mV value for the ADS1115
-	# (Take signed values into account as well)
-	val = (result[0] << 8) | (result[1])
-	if val > 0x7FFF:
-	  return (val - 0xFFFF)*pga/32768.0
-	else:
-	  return ( (result[0] << 8) | (result[1]) )*pga/32768.0
-	
+    # Return a mV value for the ADS1115
+    # (Take signed values into account as well)
+    val = (result[0] << 8) | (result[1])
+    if val > 0x7FFF:
+      return (val - 0xFFFF)*pga/32768.0
+    else:
+      return ( (result[0] << 8) | (result[1]) )*pga/32768.0
+    
 
   def readADCDifferential(self, chP=0, chN=1, pga=6144, sps=250):
     "Gets a differential ADC reading from channels chP and chN in mV. \
@@ -257,8 +257,8 @@ class ADS1x15:
       config |= self.__ADS1015_REG_CONFIG_MUX_DIFF_1_3  
     else:
       if (self.debug):
-	print "ADS1x15: Invalid channels specified: %d, %d" % (chP, chN)
-	return -1
+    print "ADS1x15: Invalid channels specified: %d, %d" % (chP, chN)
+    return -1
          
     # Set sample per seconds, defaults to 250sps
     # If sps is in the dictionary (defined in init()) it returns the value of the constant
@@ -266,12 +266,12 @@ class ADS1x15:
     if (self.ic == self.__IC_ADS1015):
       config |= self.spsADS1015.setdefault(sps, self.__ADS1015_REG_CONFIG_DR_1600SPS)
     else:
-      if ( (sps not in self.spsADS1115) & self.debug):	  
-	print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
+      if ( (sps not in self.spsADS1115) & self.debug):    
+    print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
       config |= self.spsADS1115.setdefault(sps, self.__ADS1115_REG_CONFIG_DR_250SPS)
   
     # Set PGA/voltage range, defaults to +-6.144V
-    if ( (pga not in self.pgaADS1x15) & self.debug):	  
+    if ( (pga not in self.pgaADS1x15) & self.debug):      
       print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
     config |= self.pgaADS1x15.setdefault(pga, self.__ADS1015_REG_CONFIG_PGA_6_144V)
     self.pga = pga
@@ -292,16 +292,20 @@ class ADS1x15:
     # Read the conversion results
     result = self.i2c.readList(self.__ADS1015_REG_POINTER_CONVERT, 2)
     if (self.ic == self.__IC_ADS1015):
-    	# Shift right 4 bits for the 12-bit ADS1015 and convert to mV
-    	return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*pga/2048.0
+        # Shift right 4 bits for the 12-bit ADS1015 and convert to mV
+    val = ((result[0] << 8) | (result[1] & 0xFF)) >> 4
+    # (Take signed values into account as well)
+    if val >> 11:
+        val = val - 0xfff
+        return val*pga/2048.0
     else:
-	# Return a mV value for the ADS1115
-	# (Take signed values into account as well)
-	val = (result[0] << 8) | (result[1])
-	if val > 0x7FFF:
-	  return (val - 0xFFFF)*pga/32768.0
-	else:
-	  return ( (result[0] << 8) | (result[1]) )*pga/32768.0
+    # Return a mV value for the ADS1115
+    # (Take signed values into account as well)
+    val = (result[0] << 8) | (result[1])
+    if val > 0x7FFF:
+      return (val - 0xFFFF)*pga/32768.0
+    else:
+      return ( (result[0] << 8) | (result[1]) )*pga/32768.0
 
 
   def readADCDifferential01(self, pga=6144, sps=250):
@@ -351,7 +355,7 @@ class ADS1x15:
     # Default to channel 0 with invalid channel, or return -1?
     if (channel > 3):
       if (self.debug):
-	print "ADS1x15: Invalid channel specified: %d" % channel
+    print "ADS1x15: Invalid channel specified: %d" % channel
       return -1
     
     # Disable comparator, Non-latching, Alert/Rdy active low
@@ -369,12 +373,12 @@ class ADS1x15:
     if (self.ic == self.__IC_ADS1015):
       config |= self.spsADS1015.setdefault(sps, self.__ADS1015_REG_CONFIG_DR_1600SPS)
     else:
-      if ( (sps not in self.spsADS1115) & self.debug):	  
-	print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
+      if ( (sps not in self.spsADS1115) & self.debug):    
+    print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
       config |= self.spsADS1115.setdefault(sps, self.__ADS1115_REG_CONFIG_DR_250SPS)
   
     # Set PGA/voltage range, defaults to +-6.144V
-    if ( (pga not in self.pgaADS1x15) & self.debug):	  
+    if ( (pga not in self.pgaADS1x15) & self.debug):      
       print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
     config |= self.pgaADS1x15.setdefault(pga, self.__ADS1015_REG_CONFIG_PGA_6_144V)
     self.pga = pga 
@@ -408,16 +412,16 @@ class ADS1x15:
     # Read the conversion results
     result = self.i2c.readList(self.__ADS1015_REG_POINTER_CONVERT, 2)
     if (self.ic == self.__IC_ADS1015):
-    	# Shift right 4 bits for the 12-bit ADS1015 and convert to mV
-    	return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*pga/2048.0
+        # Shift right 4 bits for the 12-bit ADS1015 and convert to mV
+        return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*pga/2048.0
     else:
-	# Return a mV value for the ADS1115
-	# (Take signed values into account as well)
-	val = (result[0] << 8) | (result[1])
-	if val > 0x7FFF:
-	  return (val - 0xFFFF)*pga/32768.0
-	else:
-	  return ( (result[0] << 8) | (result[1]) )*pga/32768.0  
+    # Return a mV value for the ADS1115
+    # (Take signed values into account as well)
+    val = (result[0] << 8) | (result[1])
+    if val > 0x7FFF:
+      return (val - 0xFFFF)*pga/32768.0
+    else:
+      return ( (result[0] << 8) | (result[1]) )*pga/32768.0  
 
   def startContinuousDifferentialConversion(self, chP=0, chN=1, pga=6144, sps=250): 
     "Starts the continuous differential conversion mode and returns the first ADC reading \
@@ -442,12 +446,12 @@ class ADS1x15:
     if (self.ic == self.__IC_ADS1015):
       config |= self.spsADS1015.setdefault(sps, self.__ADS1015_REG_CONFIG_DR_1600SPS)
     else:
-      if ( (sps not in self.spsADS1115) & self.debug):	  
-	print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
+      if ( (sps not in self.spsADS1115) & self.debug):    
+    print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
       config |= self.spsADS1115.setdefault(sps, self.__ADS1115_REG_CONFIG_DR_250SPS)
   
     # Set PGA/voltage range, defaults to +-6.144V
-    if ( (pga not in self.pgaADS1x15) & self.debug):	  
+    if ( (pga not in self.pgaADS1x15) & self.debug):      
       print "ADS1x15: Invalid pga specified: %d, using 6144mV" % sps     
     config |= self.pgaADS1x15.setdefault(pga, self.__ADS1015_REG_CONFIG_PGA_6_144V)
     self.pga = pga 
@@ -463,8 +467,8 @@ class ADS1x15:
       config |= self.__ADS1015_REG_CONFIG_MUX_DIFF_1_3  
     else:
       if (self.debug):
-	print "ADS1x15: Invalid channels specified: %d, %d" % (chP, chN)
-	return -1  
+    print "ADS1x15: Invalid channels specified: %d, %d" % (chP, chN)
+    return -1  
     
     # Set 'start single-conversion' bit to begin conversions
     # No need to change this for continuous mode!
@@ -485,18 +489,18 @@ class ADS1x15:
     # Read the conversion results
     result = self.i2c.readList(self.__ADS1015_REG_POINTER_CONVERT, 2)
     if (self.ic == self.__IC_ADS1015):
-	# Shift right 4 bits for the 12-bit ADS1015 and convert to mV
-	return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*pga/2048.0
+    # Shift right 4 bits for the 12-bit ADS1015 and convert to mV
+    return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*pga/2048.0
     else:
-	# Return a mV value for the ADS1115
-	# (Take signed values into account as well)
-	val = (result[0] << 8) | (result[1])
-	if val > 0x7FFF:
-	  return (val - 0xFFFF)*pga/32768.0
-	else:
-	  return ( (result[0] << 8) | (result[1]) )*pga/32768.0  
+    # Return a mV value for the ADS1115
+    # (Take signed values into account as well)
+    val = (result[0] << 8) | (result[1])
+    if val > 0x7FFF:
+      return (val - 0xFFFF)*pga/32768.0
+    else:
+      return ( (result[0] << 8) | (result[1]) )*pga/32768.0  
 
-	  
+      
   def stopContinuousConversion(self):
     "Stops the ADC's conversions when in continuous mode \
     and resets the configuration to its default value."
@@ -513,18 +517,18 @@ class ADS1x15:
     # Read the conversion results
     result = self.i2c.readList(self.__ADS1015_REG_POINTER_CONVERT, 2)
     if (self.ic == self.__IC_ADS1015):
-    	# Shift right 4 bits for the 12-bit ADS1015 and convert to mV
-    	return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*self.pga/2048.0
+        # Shift right 4 bits for the 12-bit ADS1015 and convert to mV
+        return ( ((result[0] << 8) | (result[1] & 0xFF)) >> 4 )*self.pga/2048.0
     else:
-	# Return a mV value for the ADS1115
-	# (Take signed values into account as well)
-	val = (result[0] << 8) | (result[1])
-	if val > 0x7FFF:
-	  return (val - 0xFFFF)*self.pga/32768.0
-	else:
-	  return ( (result[0] << 8) | (result[1]) )*self.pga/32768.0  
-	
-	
+    # Return a mV value for the ADS1115
+    # (Take signed values into account as well)
+    val = (result[0] << 8) | (result[1])
+    if val > 0x7FFF:
+      return (val - 0xFFFF)*self.pga/32768.0
+    else:
+      return ( (result[0] << 8) | (result[1]) )*self.pga/32768.0  
+    
+    
   def startSingleEndedComparator(self, channel, thresholdHigh, thresholdLow, \
                                  pga=6144, sps=250, \
                                  activeLow=True, traditionalMode=True, latching=False, \
@@ -544,7 +548,7 @@ class ADS1x15:
     # With invalid channel return -1
     if (channel > 3):
       if (self.debug):
-	print "ADS1x15: Invalid channel specified: %d" % channel
+    print "ADS1x15: Invalid channel specified: %d" % channel
       return -1
     
     # Continuous mode
@@ -576,16 +580,16 @@ class ADS1x15:
     # If sps is in the dictionary (defined in init()) it returns the value of the constant
     # othewise it returns the value for 250sps. This saves a lot of if/elif/else code!
     if (self.ic == self.__IC_ADS1015):
-      if ( (sps not in self.spsADS1015) & self.debug):	  
-	print "ADS1x15: Invalid sps specified: %d, using 1600sps" % sps       
+      if ( (sps not in self.spsADS1015) & self.debug):    
+    print "ADS1x15: Invalid sps specified: %d, using 1600sps" % sps       
       config |= self.spsADS1015.setdefault(sps, self.__ADS1015_REG_CONFIG_DR_1600SPS)
     else:
-      if ( (sps not in self.spsADS1115) & self.debug):	  
-	print "ADS1x15: Invalid sps specified: %d, using 250sps" % sps     
+      if ( (sps not in self.spsADS1115) & self.debug):    
+    print "ADS1x15: Invalid sps specified: %d, using 250sps" % sps     
       config |= self.spsADS1115.setdefault(sps, self.__ADS1115_REG_CONFIG_DR_250SPS)
 
     # Set PGA/voltage range, defaults to +-6.144V
-    if ( (pga not in self.pgaADS1x15) & self.debug):	  
+    if ( (pga not in self.pgaADS1x15) & self.debug):      
       print "ADS1x15: Invalid pga specified: %d, using 6144mV" % pga     
     config |= self.pgaADS1x15.setdefault(pga, self.__ADS1015_REG_CONFIG_PGA_6_144V)
     self.pga = pga
@@ -671,16 +675,16 @@ class ADS1x15:
     # If sps is in the dictionary (defined in init()) it returns the value of the constant
     # othewise it returns the value for 250sps. This saves a lot of if/elif/else code!
     if (self.ic == self.__IC_ADS1015):
-      if ( (sps not in self.spsADS1015) & self.debug):	  
-	print "ADS1x15: Invalid sps specified: %d, using 1600sps" % sps       
+      if ( (sps not in self.spsADS1015) & self.debug):    
+    print "ADS1x15: Invalid sps specified: %d, using 1600sps" % sps       
       config |= self.spsADS1015.setdefault(sps, self.__ADS1015_REG_CONFIG_DR_1600SPS)
     else:
-      if ( (sps not in self.spsADS1115) & self.debug):	  
-	print "ADS1x15: Invalid sps specified: %d, using 250sps" % sps     
+      if ( (sps not in self.spsADS1115) & self.debug):    
+    print "ADS1x15: Invalid sps specified: %d, using 250sps" % sps     
       config |= self.spsADS1115.setdefault(sps, self.__ADS1115_REG_CONFIG_DR_250SPS)
 
     # Set PGA/voltage range, defaults to +-6.144V
-    if ( (pga not in self.pgaADS1x15) & self.debug):	  
+    if ( (pga not in self.pgaADS1x15) & self.debug):      
       print "ADS1x15: Invalid pga specified: %d, using 6144mV" % pga     
     config |= self.pgaADS1x15.setdefault(pga, self.__ADS1015_REG_CONFIG_PGA_6_144V)
     self.pga = pga
@@ -696,8 +700,8 @@ class ADS1x15:
       config |= self.__ADS1015_REG_CONFIG_MUX_DIFF_1_3  
     else:
       if (self.debug):
-	print "ADS1x15: Invalid channels specified: %d, %d" % (chP, chN)
-	return -1
+    print "ADS1x15: Invalid channels specified: %d, %d" % (chP, chN)
+    return -1
 
     # Set 'start single-conversion' bit to begin conversions
     config |= self.__ADS1015_REG_CONFIG_OS_SINGLE

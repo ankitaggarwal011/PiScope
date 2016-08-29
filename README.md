@@ -42,7 +42,7 @@ sudo apt-get install python-numpy python-scipy python-matplotlib python-tk
 ## Interfacing ADS1015 with Raspberry Pi
 
 1. Connect Adafruit ADS1015 to Raspberry Pi
-> GND to GND, 5V to 5V, SDL to SDL, SCL to SCL, ADDR to GND (I2C address 0x48)
+> GND to GND, 5V to 5V, SDA to SDA, SCL to SCL, ADDR to GND (I2C address 0x48)
 2. Check the devices connected to the I2C bus using the command below
 > The Adafruit ADS1015 should be shown at: 
 ```sh

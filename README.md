@@ -1,4 +1,4 @@
-# PiScope [![Badge License]][License]
+# PiScope [![Badge Python]][Python] [![Badge License]][License]
 *Turn your Raspberry Pi into an Oscilloscope / XY Plotter*
 
 ---
@@ -81,7 +81,9 @@ If anybody is interested in working on developing this library, fork and feel fr
 [Usage]: Documentation/Usage.md
 
 [Badge License]: https://img.shields.io/badge/License-MIT-yellow.svg
+[Badge Python]: https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white
 
+[Python]: https://www.python.org/
 
 [Raspberry Pi & Python]: https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code
 [ADC Breakouts]: https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/

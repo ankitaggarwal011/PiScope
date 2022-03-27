@@ -42,8 +42,12 @@ Tkinter
 
 In order to install these dependencies on Raspberry Pi, one can use the following command:
 
-```
-sudo apt-get install python-numpy python-scipy python-matplotlib python-tk
+```sh
+pip install     \
+    matplotlib  \
+    numpy       \
+    scipy       \
+    tk
 ```
 
 ## Interfacing ADS1015 with Raspberry Pi

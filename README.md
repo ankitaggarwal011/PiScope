@@ -50,25 +50,6 @@ pip install     \
     tk
 ```
 
-## Interfacing ADS1015 with Raspberry Pi
-
-1. Connect Adafruit ADS1015 to Raspberry Pi
-> GND to GND, 5V to 5V, SDA to SDA, SCL to SCL, ADDR to GND (I2C address 0x48)
-2. Check the devices connected to the I2C bus using the command below
-> The Adafruit ADS1015 should be shown at: 
-```sh
-$ sudo i2cdetect -y 1
-```
-
-If you need help in interfacing, check out the official documentation from Adafruit:
-
-- [Configuring I2C]
-
-- [ADC Breakouts]
-
-- [Raspberry Pi & Python]
-
-
 
 ## Contributors
 

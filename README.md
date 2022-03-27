@@ -57,87 +57,8 @@ https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/
 
 https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code 
 
-## Usage
-
-To turn your Raspberry Pi into an *Oscilloscope* using this library, just clone the repository and use the following code:
-
-```python
-from PiScope import Plotter
-
-piscope = Plotter()
-
-piscope.setup([0]) # Here, the channel used on ADS1015 is channel 0.
-
-piscope.plot()
-```
-
-#### OR
-
-Use example_oscilloscope.py available with the repository.
-```sh
-$ python example_oscilloscope.py
-```
-
-To turn your Raspberry Pi into an *XY Plotter* using this library, just clone the repository and use the following code:
-
-```python
-from PiScope import Plotter
-
-piscope = Plotter()
-
-piscope.setup([0, 1]) # Here, the channels used on ADS1015 are channel 0 (X) and channel 1 (Y).
-
-piscope.plot()
-```
-
-#### OR
-
-Use example_xyplotter.py available with the repository.
-```sh
-$ python example_xyplotter.py
-```
-
-# Dry Test
-
-In case you don't own a Raspberry Pi or ADS1015 yet, but want to see the library in action, I have included a dry test example, which doesn't require any hardware. You can simply run it on any Linux/Windows platform.
-
-Use example_drytest.py available with the repository.
-
-```sh
-$ python example_drytest.py
-```
-
-## Example results
-
-![](./Resources/example_oscilloscope.png)
-*Oscilloscope*
 
 
-![](./Resources/example_xyplotter.png)
-*XY Plotter*
-
-## API
-```python
-from PiScope import Plotter
-```
-Import the module in your main file.
-
-```python
-piscope = Plotter()
-```
-Create oscilloscope/XY Plotter
-
-#### piscope.setup(channels)
-Setup the channels of ADS1015 being used for oscilloscope/XY Plotter.
-
-channels is the channels of ADS1015 which are to be used, Type: List/Array of 1 or 2 Integers.
-
-e.g. In case of an oscilloscope, channels is a list with one element representing the active ADS1015 channel (channels = [channel_number]).
-
-e.g. In case of an oscilloscope, channels is a list with two elements representing the active ADS1015 channels (channels = [channel_number_X, channel_number_Y]).
-
-#### piscope.plot()
-Plot the analog values on the oscilloscope/XY Plotter.
 
 ## Contributors
 

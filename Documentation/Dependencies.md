@@ -1,29 +1,38 @@
-## Dependencies
 
-*Hardware*
+# Dependencies
 
-1. Raspberry Pi B/B+/2
+## Hardware
 
-2. [ADS1015 Breakout board Analog to Digital converter][ADS1015]
+1. Raspberry Pi B / B+ / 2
 
-*Software*
+2. A Supported Breakout Board
 
-1. Python 2.7
+## Software
 
-The following python modules are needed in order to use this library:
+1. [Python] <br>
+    *Version `2.7`*
+    
+2. Python Modules:
+    - [`numpy`][Pip Numpy]
+    - [`matplotlib`][Pip Matplot]
+    - [`scipy`][Pip Scipy]
+    - [`tkinter`][Tkinter]
+    
+    These modules can be installed with:
+    
+    ```sh
+    pip install     \
+        matplotlib  \
+        numpy       \
+        scipy
+    ```
 
-```
-pylab
-matplotlib
-Tkinter
-```
+<!----------------------------------------------------------------------------->
 
-In order to install these dependencies on Raspberry Pi, one can use the following command:
+[Python]: https://www.python.org/
 
-```sh
-pip install     \
-    matplotlib  \
-    numpy       \
-    scipy       \
-    tk
-```
+[Pip Numpy]: https://pypi.org/project/numpy/
+[Pip Matplot]: https://pypi.org/project/matplotlib/
+[Pip Scipy]: https://pypi.org/project/scipy/
+
+[Tkinter]: https://docs.python.org/3/library/tkinter.html#module-tkinter

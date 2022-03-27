@@ -1,4 +1,4 @@
-# PiScope
+# PiScope [![Badge License]][License]
 *Turn your Raspberry Pi into an Oscilloscope / XY Plotter*
 
 An **oscilloscope** is a laboratory instrument commonly used to display and analyze the waveform of electronic signals. In effect, the device draws a graph of the instantaneous signal voltage as a function of time.
@@ -66,13 +66,13 @@ If you need help in interfacing, check out the official documentation from Adafr
 
 If anybody is interested in working on developing this library, fork and feel free to get in touch with me.
 
-## License
-
-[MIT License][License]
 
 <!----------------------------------------------------------------------------->
 
 [License]: ./LICENSE
+
+[Badge License]: https://img.shields.io/badge/License-MIT-yellow.svg
+
 
 [Raspberry Pi & Python]: https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code
 [ADC Breakouts]: https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/

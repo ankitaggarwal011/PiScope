@@ -1,20 +1,28 @@
 # PiScope [![Badge Python]][Python] [![Badge License]][License]
 *Turn your Raspberry Pi into an Oscilloscope / XY Plotter*
 
+<br>
+
 ---
 
 **⸢ [Dependencies] ⸥ ⸢ [Usage] ⸥ ⸢ [API] ⸥ ⸢ [Dry Test] ⸥**
 
 ---
 
+<br>
+
 This library allows you to easily interface your **Raspberry Pi** <br>
 with the to it connected **Analog To Digital Converter**.
+
+<br>
 
 ![Preview]
 
 *[Raspberry Pi with ADS1015][ADS1015 Preview]*
 
 ---
+
+<br>
 
 An **Oscilloscope** is an instrument that can be used <br>
 to display / analyze the waveform of electric signals.
@@ -25,6 +33,8 @@ the signal voltage as a function of time.
 A **XY Plotter** is an instrument that plots <br>
 two voltage with respect to one another.
 
+<br>
+
 ---
 
 ## Supported Boards
@@ -32,6 +42,8 @@ two voltage with respect to one another.
 - **[ADS1015 | Adafruit Breakout Board][ADS1015]**
 
 ---
+
+<br>
 
 ## Motivation
 
@@ -41,13 +53,18 @@ how costly they are as well as the space they take up.
 
 While it isn't very precise, it may come <br>in handy in a multitude of applications.
 
+<br>
+
 ---
+
+<br>
 
 ## Contribute
 
 If you wish to contribute to this library, simply fork the <br>
 repository and open a pull-request once you are ready.
 
+<br>
 
 <!----------------------------------------------------------------------------->
 

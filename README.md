@@ -109,11 +109,11 @@ $ python example_drytest.py
 
 ## Example results
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PiScope/master/example_oscilloscope.png)
+![](./Resources/example_oscilloscope.png)
 *Oscilloscope*
 
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PiScope/master/example_xyplotter.png)
+![](./Resources/example_xyplotter.png)
 *XY Plotter*
 
 ## API

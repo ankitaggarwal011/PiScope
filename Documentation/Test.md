@@ -1,19 +1,40 @@
+
 # Dry Test
 
-In case you don't own a Raspberry Pi or ADS1015 yet, but want to see the library in action, I have included a dry test example, which doesn't require any hardware. You can simply run it on any Linux/Windows platform.
+For testing purposes and in case you do not <br>
+own a **Raspberry Pi** / **Breakout Board**, you <br>
+can use the following test script.
 
-Use example_drytest.py available with the repository.
+It should work on both **Linux** and **Windows**.
+
+---
+
+## Test Script
+
+Use [`example_drytest.py`][Test] available with the repository.
 
 ```sh
-$ python example_drytest.py
+python example_drytest.py
 ```
+
+---
 
 ## Example results
 
-![](./Resources/example_oscilloscope.png)
-*Oscilloscope*
+### Oscilloscope
+
+![Result Oscilloscope]
 
 
-![](./Resources/example_xyplotter.png)
-*XY Plotter*
+### XY Plotter
 
+![Result XYPlotter]
+
+
+
+<!----------------------------------------------------------------------------->
+
+[Test]: ../Source/example_drytest.py
+
+[Result Oscilloscope]: ../Resources/Oscilloscope.png
+[Result XYPlotter]: ../Resources/XYPlotter.png

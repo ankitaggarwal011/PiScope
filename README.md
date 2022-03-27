@@ -1,6 +1,12 @@
 # PiScope [![Badge License]][License]
 *Turn your Raspberry Pi into an Oscilloscope / XY Plotter*
 
+---
+
+**⸢ [Usage] ⸥ ⸢ [API] ⸥ ⸢ [Dry Test] ⸥**
+
+---
+
 An **oscilloscope** is a laboratory instrument commonly used to display and analyze the waveform of electronic signals. In effect, the device draws a graph of the instantaneous signal voltage as a function of time.
 
 A **XY Plotter** is an instrument to plot a voltage variable with respect to another voltage variable. This is in contrast to the oscilloscope which plots a voltage variable with respect to time.
@@ -70,6 +76,9 @@ If anybody is interested in working on developing this library, fork and feel fr
 <!----------------------------------------------------------------------------->
 
 [License]: ./LICENSE
+[API]: Documentation/API.md
+[Dry Test]: Documentation/Test.md
+[Usage]: Documentation/Usage.md
 
 [Badge License]: https://img.shields.io/badge/License-MIT-yellow.svg
 

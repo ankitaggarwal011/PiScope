@@ -3,7 +3,7 @@
 
 ---
 
-**⸢ [Usage] ⸥ ⸢ [API] ⸥ ⸢ [Dry Test] ⸥**
+**⸢ [Dependencies] ⸥ ⸢ [Usage] ⸥ ⸢ [API] ⸥ ⸢ [Dry Test] ⸥**
 
 ---
 
@@ -20,35 +20,7 @@ This python library can turn your **Raspberry Pi** into an Oscilloscope or XY pl
 ## Motivation
 Oscilloscope are costly, bulky. I wanted to monitor analog sensors on Raspberry Pi and I didn't had an actual oscilloscope. Not exactly precise, but it could be very helpful for most applications.
 
-## Dependencies
 
-*Hardware*
-
-1. Raspberry Pi B/B+/2
-
-2. [ADS1015 Breakout board Analog to Digital converter][ADS1015]
-
-*Software*
-
-1. Python 2.7
-
-The following python modules are needed in order to use this library:
-
-```
-pylab
-matplotlib
-Tkinter
-```
-
-In order to install these dependencies on Raspberry Pi, one can use the following command:
-
-```sh
-pip install     \
-    matplotlib  \
-    numpy       \
-    scipy       \
-    tk
-```
 
 ---
 
@@ -60,10 +32,11 @@ repository and open a pull-request once you are ready.
 
 <!----------------------------------------------------------------------------->
 
-[License]: ./LICENSE
-[API]: Documentation/API.md
+[Dependencies]: Documentation/Dependencies.md
 [Dry Test]: Documentation/Test.md
+[License]: ./LICENSE
 [Usage]: Documentation/Usage.md
+[API]: Documentation/API.md
 
 [Badge License]: https://img.shields.io/badge/License-MIT-yellow.svg
 [Badge Python]: https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white

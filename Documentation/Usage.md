@@ -24,8 +24,11 @@ plotter.setup([ 0 ])
 plotter.plot()
 ```
 
+<br>
+
 ### OR
 
+<br>
 <br>
 
 Use [`example_oscilloscope.py`][Example Oscilloscope] with:
@@ -62,13 +65,20 @@ plotter.setup([ 0 , 1 ])
 plotter.plot()
 ```
 
+<br>
+
 ## OR
+
+<br>
+<br>
 
 Use [`example_xyplotter.py`][Example XYPlotter] with:
 
 ```sh
 python example_xyplotter.py
 ```
+
+<br>
 
 <!----------------------------------------------------------------------------->
 

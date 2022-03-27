@@ -7,7 +7,7 @@ A **XY Plotter** is an instrument to plot a voltage variable with respect to ano
 This python library can turn your **Raspberry Pi** into an Oscilloscope or XY plotter. Simply, interface an **Analog to Digital Converter** with your Raspberry Pi and use the library to view the analog signals on your Raspberry Pi. Currently, the library supports Adafruit ADS1015 breakout board.
 
 
-![](https://learn.adafruit.com/system/guides/images/000/000/195/medium800/summary.jpg)
+![Preview]
 *Raspberry Pi with ADS1015*
 
 ## Motivation
@@ -19,7 +19,7 @@ Oscilloscope are costly, bulky. I wanted to monitor analog sensors on Raspberry 
 
 1. Raspberry Pi B/B+/2
 
-2. [ADS1015 Breakout board Analog to Digital converter](http://www.adafruit.com/product/1083)
+2. [ADS1015 Breakout board Analog to Digital converter][ADS1015]
 
 *Software*
 
@@ -51,12 +51,11 @@ $ sudo i2cdetect -y 1
 
 If you need help in interfacing, check out the official documentation from Adafruit:
 
-https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c
+- [Configuring I2C]
 
-https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/
+- [ADC Breakouts]
 
-https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code 
-
+- [Raspberry Pi & Python]
 
 
 
@@ -68,4 +67,14 @@ If anybody is interested in working on developing this library, fork and feel fr
 
 ## License
 
-[MIT License](https://github.com/ankitaggarwal011/PiScope/blob/master/LICENSE)
+[MIT License][License]
+
+<!----------------------------------------------------------------------------->
+
+[License]: ./LICENSE
+
+[Raspberry Pi & Python]: https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code
+[ADC Breakouts]: https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/
+[Configuring I2C]: https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c
+[ADS1015]: http://www.adafruit.com/product/1083
+[Preview]: https://learn.adafruit.com/system/guides/images/000/000/195/medium800/summary.jpg

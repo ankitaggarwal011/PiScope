@@ -1,11 +1,15 @@
 
 # Dependencies
 
+<br>
+
 ## Hardware
 
 1. Raspberry Pi B / B+ / 2
 
 2. A Supported Breakout Board
+
+<br>
 
 ## Software
 

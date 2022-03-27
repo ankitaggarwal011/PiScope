@@ -17,10 +17,15 @@ This python library can turn your **Raspberry Pi** into an Oscilloscope or XY pl
 ![Preview]
 *Raspberry Pi with ADS1015*
 
+---
+
 ## Motivation
-Oscilloscope are costly, bulky. I wanted to monitor analog sensors on Raspberry Pi and I didn't had an actual oscilloscope. Not exactly precise, but it could be very helpful for most applications.
 
+I wanted to monitor analog sensors with my Raspberry Pi <br>
+but I didn't have an actual oscilloscope, not to mention <br>
+how costly they are as well as the space they take up.
 
+While it isn't very precise, it may come <br>in handy in a multitude of applications.
 
 ---
 

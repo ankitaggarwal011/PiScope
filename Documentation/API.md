@@ -1,6 +1,8 @@
 
 # API
 
+<br>
+
 ## Import
 
 The module can be imported with:
@@ -9,7 +11,11 @@ The module can be imported with:
 from PiScope import Plotter
 ```
 
+<br>
+
 ---
+
+<br>
 
 ## Plotter
 
@@ -19,12 +25,18 @@ Create a **Oscilloscope** / **XY Plotter** instance with:
 plotter = Plotter()
 ```
 
+<br>
+
 ---
+
+<br>
 
 ## Setup
 ***`plotter.setup(channels)`***
 
 Setup the channels of the breakout board used for oscilloscope / XY Plotter.
+
+<br>
 
 ### Channels 
 
@@ -50,9 +62,15 @@ representing the active channels on which to listen.
 plotter.setup([ <X-Channel> , <Y-Channel> ])
 ```
 
+<br>
+
 ---
+
+<br>
 
 ## Plot
 ***`plotter.plot()`***
 
 Plots the analog values on the **Oscilloscope** / **XY Plotter**.
+
+<br>

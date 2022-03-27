@@ -7,7 +7,11 @@ can use the following test script.
 
 It should work on both **Linux** and **Windows**.
 
+<br>
+
 ---
+
+<br>
 
 ## Test Script
 
@@ -17,20 +21,27 @@ Use [`example_drytest.py`][Test] available with the repository.
 python example_drytest.py
 ```
 
+<br>
+
 ---
 
+<br>
+
 ## Example results
+
+<br>
 
 ### Oscilloscope
 
 ![Result Oscilloscope]
 
+<br>
 
 ### XY Plotter
 
 ![Result XYPlotter]
 
-
+<br>
 
 <!----------------------------------------------------------------------------->
 

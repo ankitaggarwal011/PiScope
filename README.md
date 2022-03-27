@@ -50,12 +50,12 @@ pip install     \
     tk
 ```
 
+---
 
-## Contributors
+## Contribute
 
-#### Author: Ankit Aggarwal
-
-If anybody is interested in working on developing this library, fork and feel free to get in touch with me.
+If you wish to contribute to this library, simply fork the <br>
+repository and open a pull-request once you are ready.
 
 
 <!----------------------------------------------------------------------------->

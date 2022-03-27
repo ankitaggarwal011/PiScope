@@ -1,22 +1,58 @@
-## API
+
+# API
+
+## Import
+
+The module can be imported with:
+
 ```python
 from PiScope import Plotter
 ```
-Import the module in your main file.
+
+---
+
+## Plotter
+
+Create a **Oscilloscope** / **XY Plotter** instance with:
 
 ```python
-piscope = Plotter()
+plotter = Plotter()
 ```
-Create oscilloscope/XY Plotter
 
-#### piscope.setup(channels)
-Setup the channels of ADS1015 being used for oscilloscope/XY Plotter.
+---
 
-channels is the channels of ADS1015 which are to be used, Type: List/Array of 1 or 2 Integers.
+## Setup
+***`plotter.setup(channels)`***
 
-e.g. In case of an oscilloscope, channels is a list with one element representing the active ADS1015 channel (channels = [channel_number]).
+Setup the channels of the breakout board used for oscilloscope / XY Plotter.
 
-e.g. In case of an oscilloscope, channels is a list with two elements representing the active ADS1015 channels (channels = [channel_number_X, channel_number_Y]).
+### Channels 
 
-#### piscope.plot()
-Plot the analog values on the oscilloscope/XY Plotter.
+**Type :** `List / Array`
+
+The list of channels to listen to.
+
+##### Oscilloscope
+
+In this configuration, `channels` is a list with `1` element <br>
+representing the active channel on which to listen.
+
+```python
+plotter.setup([ <Channel> ])
+```
+
+##### XY Plotter
+
+In this configuration, `channels` is a list with `2` elements <br>
+representing the active channels on which to listen. 
+
+```python
+plotter.setup([ <X-Channel> , <Y-Channel> ])
+```
+
+---
+
+## Plot
+***`plotter.plot()`***
+
+Plots the analog values on the **Oscilloscope** / **XY Plotter**.

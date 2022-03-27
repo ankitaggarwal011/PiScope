@@ -7,7 +7,7 @@
 
 1. Raspberry Pi B / B+ / 2
 
-2. A Supported Breakout Board
+2. **[A Supported Breakout Board][Boards]**
 
 <br>
 
@@ -32,6 +32,8 @@
     ```
 
 <!----------------------------------------------------------------------------->
+
+[Boards]: Boards/
 
 [Python]: https://www.python.org/
 

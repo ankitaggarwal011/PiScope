@@ -1,4 +1,5 @@
-# PiScope: Turn your Raspberry Pi into an Oscilloscope/XY Plotter
+# PiScope
+*Turn your Raspberry Pi into an Oscilloscope / XY Plotter*
 
 An **oscilloscope** is a laboratory instrument commonly used to display and analyze the waveform of electronic signals. In effect, the device draws a graph of the instantaneous signal voltage as a function of time.
 

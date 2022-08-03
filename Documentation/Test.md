@@ -8,9 +8,6 @@ can use the following test script.
 It should work on both **Linux** and **Windows**.
 
 <br>
-
----
-
 <br>
 
 ## Test Script
@@ -22,9 +19,6 @@ python example_drytest.py
 ```
 
 <br>
-
----
-
 <br>
 
 ## Example results
@@ -43,9 +37,10 @@ python example_drytest.py
 
 <br>
 
-<!----------------------------------------------------------------------------->
 
-[Test]: ../Source/example_drytest.py
+<!----------------------------------------------------------------------------->
 
 [Result Oscilloscope]: ../Resources/Oscilloscope.png
 [Result XYPlotter]: ../Resources/XYPlotter.png
+
+[Test]: ../Source/example_drytest.py

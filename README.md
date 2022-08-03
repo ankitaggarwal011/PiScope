@@ -16,7 +16,6 @@
 
 <br>
 <br>
-<br>
 
 This library allows you to easily interface your **Raspberry Pi** <br>
 with the to it connected **Analog To Digital Converter**.

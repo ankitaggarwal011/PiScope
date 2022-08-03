@@ -12,9 +12,6 @@ from PiScope import Plotter
 ```
 
 <br>
-
----
-
 <br>
 
 ## Plotter
@@ -26,9 +23,6 @@ plotter = Plotter()
 ```
 
 <br>
-
----
-
 <br>
 
 ## Setup
@@ -44,6 +38,8 @@ Setup the channels of the breakout board used for oscilloscope / XY Plotter.
 
 The list of channels to listen to.
 
+<br>
+
 ##### Oscilloscope
 
 In this configuration, `channels` is a list with `1` element <br>
@@ -52,6 +48,8 @@ representing the active channel on which to listen.
 ```python
 plotter.setup([ <Channel> ])
 ```
+
+<br>
 
 ##### XY Plotter
 
@@ -63,9 +61,6 @@ plotter.setup([ <X-Channel> , <Y-Channel> ])
 ```
 
 <br>
-
----
-
 <br>
 
 ## Plot

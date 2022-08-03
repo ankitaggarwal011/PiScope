@@ -1,5 +1,5 @@
 
-# Dependencies
+# Setup
 
 <br>
 
@@ -10,17 +10,27 @@
 2. **[A Supported Breakout Board][Boards]**
 
 <br>
+<br>
 
 ## Software
 
-1. [Python] <br>
+1.  **[Python]**
+
     *Version `2.7`*
     
-2. Python Modules:
+    <br>
+    
+2.  **Python Modules**
+    
     - [`numpy`][Pip Numpy]
+    
     - [`matplotlib`][Pip Matplot]
+    
     - [`scipy`][Pip Scipy]
+    
     - [`tkinter`][Tkinter]
+    
+    <br>
     
     These modules can be installed with:
     
@@ -30,6 +40,9 @@
         numpy       \
         scipy
     ```
+    
+<br>
+
 
 <!----------------------------------------------------------------------------->
 

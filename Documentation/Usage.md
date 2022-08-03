@@ -38,9 +38,6 @@ python example_oscilloscope.py
 ```
 
 <br>
-
----
-
 <br>
 
 ## XY Plotter
@@ -77,8 +74,8 @@ Use [`example_xyplotter.py`][Example XYPlotter] with:
 ```sh
 python example_xyplotter.py
 ```
-
 <br>
+
 
 <!----------------------------------------------------------------------------->
 

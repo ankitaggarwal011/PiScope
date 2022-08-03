@@ -1,150 +1,98 @@
-# PiScope: Turn your Raspberry Pi into an Oscilloscope/XY Plotter
 
-An **oscilloscope** is a laboratory instrument commonly used to display and analyze the waveform of electronic signals. In effect, the device draws a graph of the instantaneous signal voltage as a function of time.
+# PiScope   [![Badge License]][License]  [![Badge Python]][Python]
 
-A **XY Plotter** is an instrument to plot a voltage variable with respect to another voltage variable. This is in contrast to the oscilloscope which plots a voltage variable with respect to time.
+*Turn your Raspberry Pi into an Oscilloscope / XY Plotter*
 
-This python library can turn your **Raspberry Pi** into an Oscilloscope or XY plotter. Simply, interface an **Analog to Digital Converter** with your Raspberry Pi and use the library to view the analog signals on your Raspberry Pi. Currently, the library supports Adafruit ADS1015 breakout board.
+<br>
+<br>
+<br>
 
+<div align = center>
 
-![](https://learn.adafruit.com/system/guides/images/000/000/195/medium800/summary.jpg)
-*Raspberry Pi with ADS1015*
+[![Button Setup]][Setup]   
+[![Button Usage]][Usage]   
+[![Button API]][API]   
+[![Button Test]][Test]
+
+<br>
+<br>
+
+This library allows you to easily interface your **Raspberry Pi** <br>
+with the to it connected **Analog To Digital Converter**.
+
+<br>
+<br>
+
+![Preview]
+
+*[Raspberry Pi with ADS1015][ADS1015 Preview]*
+
+<br>
+<br>
+
+An **Oscilloscope** is an instrument that can be used <br>
+to display / analyze the waveform of electric signals.
+
+In effect, the device draws a graph of <br>
+the signal voltage as a function of time.
+
+A **XY Plotter** is an instrument that plots <br>
+two voltage with respect to one another.
+
+<br>
+<br>
+
+## Supported Boards
+
+**[ADS1015 | Adafruit Breakout Board][ADS1015]**
+
+<br>
+<br>
 
 ## Motivation
-Oscilloscope are costly, bulky. I wanted to monitor analog sensors on Raspberry Pi and I didn't had an actual oscilloscope. Not exactly precise, but it could be very helpful for most applications.
 
-## Dependencies
+I wanted to monitor analog sensors with my Raspberry Pi <br>
+but I didn't have an actual oscilloscope, not to mention <br>
+how costly they are as well as the space they take up.
 
-*Hardware*
+While it isn't very precise, it may come <br>in handy in a multitude of applications.
 
-1. Raspberry Pi B/B+/2
+<br>
+<br>
 
-2. [ADS1015 Breakout board Analog to Digital converter](http://www.adafruit.com/product/1083)
+## Contribute
 
-*Software*
+If you wish to contribute to this library, simply fork the <br>
+repository and open a pull-request once you are ready.
 
-1. Python 2.7
+</div>
 
-The following python modules are needed in order to use this library:
-
-```
-pylab
-matplotlib
-Tkinter
-```
-
-In order to install these dependencies on Raspberry Pi, one can use the following command:
-
-```
-sudo apt-get install python-numpy python-scipy python-matplotlib python-tk
-```
-
-## Interfacing ADS1015 with Raspberry Pi
-
-1. Connect Adafruit ADS1015 to Raspberry Pi
-> GND to GND, 5V to 5V, SDA to SDA, SCL to SCL, ADDR to GND (I2C address 0x48)
-2. Check the devices connected to the I2C bus using the command below
-> The Adafruit ADS1015 should be shown at: 
-```sh
-$ sudo i2cdetect -y 1
-```
-
-If you need help in interfacing, check out the official documentation from Adafruit:
-
-https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c
-
-https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/
-
-https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code 
-
-## Usage
-
-To turn your Raspberry Pi into an *Oscilloscope* using this library, just clone the repository and use the following code:
-
-```python
-from PiScope import Plotter
-
-piscope = Plotter()
-
-piscope.setup([0]) # Here, the channel used on ADS1015 is channel 0.
-
-piscope.plot()
-```
-
-#### OR
-
-Use example_oscilloscope.py available with the repository.
-```sh
-$ python example_oscilloscope.py
-```
-
-To turn your Raspberry Pi into an *XY Plotter* using this library, just clone the repository and use the following code:
-
-```python
-from PiScope import Plotter
-
-piscope = Plotter()
-
-piscope.setup([0, 1]) # Here, the channels used on ADS1015 are channel 0 (X) and channel 1 (Y).
-
-piscope.plot()
-```
-
-#### OR
-
-Use example_xyplotter.py available with the repository.
-```sh
-$ python example_xyplotter.py
-```
-
-# Dry Test
-
-In case you don't own a Raspberry Pi or ADS1015 yet, but want to see the library in action, I have included a dry test example, which doesn't require any hardware. You can simply run it on any Linux/Windows platform.
-
-Use example_drytest.py available with the repository.
-
-```sh
-$ python example_drytest.py
-```
-
-## Example results
-
-![](https://raw.githubusercontent.com/ankitaggarwal011/PiScope/master/example_oscilloscope.png)
-*Oscilloscope*
+<br>
 
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PiScope/master/example_xyplotter.png)
-*XY Plotter*
+<!----------------------------------------------------------------------------->
 
-## API
-```python
-from PiScope import Plotter
-```
-Import the module in your main file.
+[ADS1015 Preview]: https://learn.adafruit.com/system/guides/images/000/000/195/medium800/summary.jpg
+[ADS1015]: http://www.adafruit.com/product/1083
+[Python]: https://www.python.org/
 
-```python
-piscope = Plotter()
-```
-Create oscilloscope/XY Plotter
+[Preview]: Resources/Preview.png
+[License]: ./LICENSE
+[Setup]: Documentation/Setup.md
+[Usage]: Documentation/Usage.md
+[Test]: Documentation/Test.md
+[API]: Documentation/API.md
 
-#### piscope.setup(channels)
-Setup the channels of ADS1015 being used for oscilloscope/XY Plotter.
 
-channels is the channels of ADS1015 which are to be used, Type: List/Array of 1 or 2 Integers.
+<!----------------------------------[ Badges ]--------------------------------->
 
-e.g. In case of an oscilloscope, channels is a list with one element representing the active ADS1015 channel (channels = [channel_number]).
+[Badge License]: https://img.shields.io/badge/License-MIT-ac8b11.svg?style=for-the-badge&labelColor=yellow
+[Badge Python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 
-e.g. In case of an oscilloscope, channels is a list with two elements representing the active ADS1015 channels (channels = [channel_number_X, channel_number_Y]).
 
-#### piscope.plot()
-Plot the analog values on the oscilloscope/XY Plotter.
+<!---------------------------------[ Buttons ]--------------------------------->
 
-## Contributors
-
-#### Author: Ankit Aggarwal
-
-If anybody is interested in working on developing this library, fork and feel free to get in touch with me.
-
-## License
-
-[MIT License](https://github.com/ankitaggarwal011/PiScope/blob/master/LICENSE)
+[Button Setup]: https://img.shields.io/badge/Setup-yellow?style=for-the-badge&logoColor=white&logo=DocuSign
+[Button Usage]: https://img.shields.io/badge/Usage-3776AB?style=for-the-badge&logoColor=white&logo=GitBook
+[Button API]: https://img.shields.io/badge/API-DE5833?style=for-the-badge&logoColor=white&logo=Cloudflare
+[Button Test]: https://img.shields.io/badge/Dry_Test-48A842?style=for-the-badge&logoColor=white&logo=Codeforces
